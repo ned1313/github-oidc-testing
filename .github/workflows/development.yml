@@ -11,6 +11,7 @@ permissions:
 jobs: 
   deploy-infra:
     runs-on: ubuntu-latest
+    environment: Development
     steps:
       - name: 'Az CLI login'
         uses: azure/login@v1
