@@ -19,6 +19,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
+      
     # Install the latest version of Terraform CLI 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -39,9 +40,9 @@ jobs:
 
     # Run Terraform init
     - name: Terraform Init
-    id: init
-    env:
-      STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
-      CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
-      RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
-    run: terraform init -backend-config="storage_account_name=$STORAGE_ACCOUNT" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP_NAME"
+      id: init
+      env:
+        STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
+        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+        RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
+      run: terraform init -backend-config="storage_account_name=$STORAGE_ACCOUNT" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP_NAME"
