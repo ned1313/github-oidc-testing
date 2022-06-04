@@ -11,6 +11,7 @@ env:
 permissions:
       id-token: write
       issues: write
+      pull-requests: write
       contents: read
 jobs: 
   pr-infra-check:
