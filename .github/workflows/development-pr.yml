@@ -1,4 +1,4 @@
-name: Development Environment
+name: Development Environment PR
 
 on:
   pull_request:
@@ -10,9 +10,10 @@ env:
 
 permissions:
       id-token: write
+      issues: write
       contents: read
 jobs: 
-  deploy-infra:
+  pr-infra-check:
     runs-on: ubuntu-latest
     environment: Development
     steps:
